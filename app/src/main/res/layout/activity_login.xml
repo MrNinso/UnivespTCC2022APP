@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/lg_btn_sair"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="16dp"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_fechar" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_logotipo"
+        android:layout_margin="40dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/lg_edt_login"
+        android:layout_marginTop="-20dp"
+        android:gravity="center"
+        android:text="@string/ja_cadastrado" />
+
+    <EditText
+        android:id="@+id/lg_edt_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:gravity="center_horizontal"
+        android:hint="@string/email"
+        android:inputType="textWebEmailAddress"
+        android:padding="8dp"
+        android:background="@drawable/bg_rounded_white"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/lg_edt_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lg_edt_login"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:gravity="center_horizontal"
+        android:hint="@string/senha"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_rounded_white"
+        android:padding="8dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lg_btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lg_edt_password"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/bg_rounded_white_inverse"
+        android:text="@string/login"
+        android:textAllCaps="true"
+        android:gravity="center"
+        android:textColor="@drawable/bg_btn_text_green_white"
+        android:padding="8dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/lg_btn_create"
+        android:layout_marginTop="-20dp"
+        android:gravity="center"
+        android:text="@string/efetuar_cadastro" />
+
+    <TextView
+        android:id="@+id/lg_btn_create"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/bg_rounded_white_inverse"
+        android:text="@string/criar_conta"
+        android:textAllCaps="true"
+        android:gravity="center"
+        android:textColor="@drawable/bg_btn_text_green_white"
+        android:padding="8dp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

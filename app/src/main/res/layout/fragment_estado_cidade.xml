@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_local"
+            app:tint="@android:color/darker_gray"
+            android:layout_margin="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:gravity="center"
+            android:text="@string/estado_cidade"
+            android:textAllCaps="true"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            android:textColor="@color/green"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/sh_fg_btn_estado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/clique_aqui_para_selecionar_o_estado"
+            android:gravity="center"
+            android:background="@drawable/bg_rounded_green"
+            android:textColor="@drawable/bg_btn_text_green_white"
+            android:padding="8dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/sh_fg_btn_cidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/clique_aqui_para_selecionar_a_cidade"
+            android:gravity="center"
+            android:background="@drawable/bg_rounded_green"
+            android:textColor="@drawable/bg_btn_text_green_white"
+            android:padding="8dp"
+            android:visibility="gone"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/sh_fg_btn_avancar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/bg_rounded_green_inverse"
+            android:text="@string/avancar"
+            android:textAllCaps="true"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:padding="8dp"
+            android:visibility="gone"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>

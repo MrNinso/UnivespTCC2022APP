@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_convenio"
+            app:tint="@android:color/darker_gray"
+            android:layout_margin="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/green"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            android:layout_marginBottom="32dp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:text="@string/selecione_plano" />
+
+        <TextView
+            android:id="@+id/cd_fg_usr_pl_btn_convenio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/clique_aqui_para_selecionar_o_convenio"
+            android:gravity="center"
+            android:background="@drawable/bg_rounded_black"
+            android:textColor="@drawable/bg_btn_text_gray_white"
+            android:padding="8dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/cd_fg_usr_pl_btn_plano"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/clique_aqui_para_selecionar_o_plano_de_saude"
+            android:gravity="center"
+            android:visibility="gone"
+            android:background="@drawable/bg_rounded_black"
+            android:textColor="@drawable/bg_btn_text_gray_white"
+            android:padding="8dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/cd_fg_usr_pl_btn_enviar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/bg_rounded_green_inverse"
+            android:text="@string/enviar"
+            android:textAllCaps="true"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:padding="8dp"
+            android:visibility="gone"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>

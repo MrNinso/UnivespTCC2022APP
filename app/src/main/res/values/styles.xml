@@ -1,0 +1,26 @@
+<resources>
+
+    <style name="Widget.Theme.ProjetoUnivesp2021Frontrnd.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+
+    <style name="Widget.Theme.ProjetoUnivesp2021Frontrnd.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+
+    <style name="Widget.Theme.ProjetoUnivesp2021Frontrnd.EditText" parent="Widget.AppCompat.EditText">
+        <item name="hintTextAppearance">@android:style/TextAppearance.DeviceDefault.Medium.Inverse
+        </item>
+        <item name="android:textColorHint">@color/white</item>
+
+    </style>
+
+    <style name="CustomAnim" parent="android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_in_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_out_right</item>
+
+    </style>
+</resources>

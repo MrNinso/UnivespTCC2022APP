@@ -1,0 +1,2 @@
+rootProject.name = "ProjetoUnivesp2021-Frontrnd"
+include ':app'

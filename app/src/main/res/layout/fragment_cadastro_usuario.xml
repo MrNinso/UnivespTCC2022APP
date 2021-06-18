@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_cadastro_usuario"
+            app:tint="@android:color/darker_gray"
+            android:layout_margin="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/green"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            android:textStyle="bold"
+            android:text="@string/cadastro_usuario"
+            android:textAllCaps="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/texto_cadastro_usuario"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:textAlignment="center"
+            android:maxLines="2"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/cd_fg_usr_edt_nome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:hint="@string/nome_completo_"
+            android:maxLines="1"
+            android:background="@drawable/bg_rounded_black"
+            android:padding="8dp" />
+
+        <EditText
+            android:id="@+id/cd_fg_usr_edt_cpf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:hint="@string/cpf_"
+            android:inputType="number"
+            android:background="@drawable/bg_rounded_black"
+            android:padding="8dp" />
+
+        <EditText
+            android:id="@+id/cd_fg_usr_edt_nascimento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:hint="@string/nascimento_"
+            android:inputType="date"
+            android:background="@drawable/bg_rounded_black"
+            android:padding="8dp" />
+
+        <EditText
+            android:id="@+id/cd_fg_usr_edt_sexo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:hint="@string/sexo_"
+            android:inputType="none"
+            android:background="@drawable/bg_rounded_black"
+            android:padding="8dp" />
+
+        <EditText
+            android:id="@+id/cd_fg_usr_edt_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:hint="@string/email_"
+            android:background="@drawable/bg_rounded_black"
+            android:inputType="textEmailAddress"
+            android:padding="8dp" />
+
+        <EditText
+            android:id="@+id/cd_fg_usr_edt_fone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:hint="@string/telefone_"
+            android:background="@drawable/bg_rounded_black"
+            android:inputType="phone"
+            android:padding="8dp" />
+
+        <EditText
+            android:id="@+id/cd_fg_usr_edt_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:hint="@string/senha_"
+            android:background="@drawable/bg_rounded_black"
+            android:inputType="textPassword"
+            android:padding="8dp" />
+
+        <EditText
+            android:id="@+id/cd_fg_usr_edt_password_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:hint="@string/senha2_"
+            android:background="@drawable/bg_rounded_black"
+            android:inputType="textPassword"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/cd_fg_usr_btn_okay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/bg_rounded_green_inverse"
+            android:text="@string/avancar"
+            android:textAllCaps="true"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:padding="8dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>

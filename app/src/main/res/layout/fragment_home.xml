@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.main.HomeFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_calendario_relogio"
+        app:tint="@android:color/darker_gray"
+        android:layout_margin="16dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/green"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+        android:textStyle="bold"
+        android:text="@string/iniciar_agendamento"
+        android:textAllCaps="true"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/texto_iniciar_agendamento"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:textAlignment="center"
+        android:maxLines="2"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/hm_fg_btn_clinicas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/clinicas"
+        android:textAllCaps="true"
+        android:gravity="center"
+        android:background="@drawable/bg_rounded_green"
+        android:textColor="@drawable/bg_btn_text_green_white"
+        android:padding="10dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/hm_fg_btn_especialidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/especialidade"
+        android:textAllCaps="true"
+        android:gravity="center"
+        android:background="@drawable/bg_rounded_green"
+        android:textColor="@drawable/bg_btn_text_green_white"
+        android:padding="10dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/hm_fg_btn_exames"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/exames"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:background="@drawable/bg_rounded_green"
+        android:textColor="@drawable/bg_btn_text_green_white"
+        android:padding="10dp"
+        android:textStyle="bold"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/hm_fg_btn_favoritos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_less_rounded_black"
+            android:layout_weight="1"
+            android:padding="16dp"
+            android:layout_margin="4dp"
+            android:text="@string/t_tfavoritos"
+            android:textColor="@drawable/bg_btn_text_green_white"
+            android:textStyle="bold"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            app:drawableStartCompat="@drawable/ic_favorito"
+            app:drawableTint="@drawable/bg_btn_text_green_white" />
+
+        <TextView
+            android:id="@+id/hm_fg_btn_dependentes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_less_rounded_black"
+            android:layout_weight="1"
+            android:padding="16dp"
+            android:layout_margin="4dp"
+            android:text="@string/t_tdependentes"
+            android:textColor="@drawable/bg_btn_text_green_white"
+            android:textStyle="bold"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            app:drawableStartCompat="@drawable/ic_dependente"
+            app:drawableTint="@drawable/bg_btn_text_green_white" />
+
+    </LinearLayout>
+
+</LinearLayout>
