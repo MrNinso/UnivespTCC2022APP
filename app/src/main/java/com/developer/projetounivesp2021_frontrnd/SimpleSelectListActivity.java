@@ -132,6 +132,7 @@ public class SimpleSelectListActivity
     private EstadoCidadeAdapter loadCidades(String estado) {
         ArrayList<String> c = new ArrayList<>();
 
+        // TODO Isso vai virar uma CALL na api
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -148,8 +149,9 @@ public class SimpleSelectListActivity
     private EstadoCidadeAdapter loadEstados(Object o) {
         ArrayList<String> c = new ArrayList<>();
 
+        // TODO Isso vai virar uma CALL na api
         try {
-            Thread.sleep(10000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -164,6 +166,7 @@ public class SimpleSelectListActivity
     private ConvenioAdapter loadConvenios(Object o) {
         ArrayList<Convenio> c = new ArrayList<>();
 
+        // TODO Isso vai virar uma CALL na api
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -180,6 +183,7 @@ public class SimpleSelectListActivity
     private PlanoAdapter loadPlanos(Integer i) {
         ArrayList<PlanoSaude> p = new ArrayList<>();
 
+        // TODO Isso vai virar uma CALL na api
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {

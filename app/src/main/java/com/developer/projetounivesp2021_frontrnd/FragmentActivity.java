@@ -39,7 +39,10 @@ public class FragmentActivity extends AppCompatActivity {
             case Extras.FRAGMENT_USER:
                 return new UserFragment(getSupportFragmentManager());
             case Extras.FRAGMENT_CLINICA:
-                return new ClinicaFragment(getSupportFragmentManager());
+                return new ClinicaFragment(
+                        getSupportFragmentManager(),
+                        getIntent().getExtras()
+                );
             case Extras.FRAGMENT_USER_PLANO:
                 return new PlanoUsuarioFragment(
                     getSupportFragmentManager(),

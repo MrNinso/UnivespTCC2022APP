@@ -1,6 +1,8 @@
 package com.developer.projetounivesp2021_frontrnd.fragments.search;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,12 +15,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentManager;
 
+import com.developer.projetounivesp2021_frontrnd.FragmentActivity;
 import com.developer.projetounivesp2021_frontrnd.SimpleSelectListActivity;
 import com.developer.projetounivesp2021_frontrnd.R;
 import com.developer.projetounivesp2021_frontrnd.fragments.BaseFragment;
+import com.developer.projetounivesp2021_frontrnd.objects.Clinica;
+import com.developer.projetounivesp2021_frontrnd.tools.AsyncTools;
 import com.developer.projetounivesp2021_frontrnd.tools.ViewTools;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
 
 public class EstadoCidadeFragment extends BaseFragment {
 
@@ -81,6 +88,7 @@ public class EstadoCidadeFragment extends BaseFragment {
 
             this.mListEstadoLaucher.launch(i);
         }));
+
         this.mCidadeBtn.setOnClickListener(viewTools.btnClick(500, v1 -> {
             Intent i = new Intent(this.getContext(), SimpleSelectListActivity.class);
             Bundle b = new Bundle();
@@ -104,7 +112,53 @@ public class EstadoCidadeFragment extends BaseFragment {
             this.mListCidadeLaucher.launch(i);
         }));
         this.mAvancarBtn.setOnClickListener(viewTools.btnClick(500, v1 -> {
-            viewTools.showSnackBar(v1, "TODO");
+
+            AlertDialog dialog = viewTools.loadDialog(getLayoutInflater());
+
+            @SuppressLint("DefaultLocale") // TODO :: REMOVER
+            AsyncTools.Promise<String[]> clinicasPromise = new AsyncTools.Promise<>(EstadoCidade -> {
+                String Estado = EstadoCidade[0];
+                String Cidade = EstadoCidade[1];
+
+                // TODO Isso vai virar uma CALL na api
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                ArrayList<Clinica> clinicas = new ArrayList<>();
+
+                for (int i = 0; i < 50; i++) {
+                    clinicas.add(new Clinica(
+                            i,
+                            String.format("Clinica %d %s - %s", i, Estado, Cidade)
+                    ));
+                }
+
+                return clinicas;
+            });
+
+            clinicasPromise.Input = new String[] { this.mEstado, this.mCidade };
+
+            clinicasPromise.resolve(o -> {
+                dialog.dismiss();
+                ArrayList<Clinica> clinicas = (ArrayList<Clinica>) o;
+                if (clinicas.size() == 0) {
+                    viewTools.showSnackBar(v1, "TODO"); // TODO
+                } else {
+                    Intent i = new Intent(this.getContext(), FragmentActivity.class);
+
+                    i.putExtra(
+                            FragmentActivity.Extras.EXTRA_FRAGMENT,
+                            FragmentActivity.Extras.FRAGMENT_CLINICA
+                    );
+
+                    startActivity(i);
+
+                }
+            });
+            dialog.show();
         }));
     }
 
