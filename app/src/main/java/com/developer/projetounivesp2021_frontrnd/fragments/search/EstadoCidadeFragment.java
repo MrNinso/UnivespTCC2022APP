@@ -154,8 +154,12 @@ public class EstadoCidadeFragment extends BaseFragment {
                             FragmentActivity.Extras.FRAGMENT_CLINICA
                     );
 
-                    startActivity(i);
+                    i.putExtra(
+                            ClinicaFragment.Extras.CLINICAS_ARRAY,
+                            clinicas
+                    );
 
+                    startActivity(i);
                 }
             });
             dialog.show();

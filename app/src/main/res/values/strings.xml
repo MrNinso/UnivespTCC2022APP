@@ -53,5 +53,6 @@
     <string name="estado_cidade">Estado e Cidade</string>
     <string name="selecione_estado">Selecione um estado</string>
     <string name="selecione_cidade">Selecione uma cidade</string>
+    <string name="selecione_clinica_marcar">Selecione a clínica que deseja marcar consulta</string>
     <string name="pesquisar">Pesquisar</string>
 </resources>

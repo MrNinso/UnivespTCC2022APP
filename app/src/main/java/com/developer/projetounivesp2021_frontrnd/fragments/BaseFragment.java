@@ -16,7 +16,7 @@ import com.developer.projetounivesp2021_frontrnd.interfaces.Constants;
 public abstract class BaseFragment extends Fragment implements Constants {
 
     private final FragmentManager mMamanger;
-    private final Bundle mExtras;
+    protected final Bundle mExtras;
 
     public BaseFragment(){
         assert getActivity() != null;

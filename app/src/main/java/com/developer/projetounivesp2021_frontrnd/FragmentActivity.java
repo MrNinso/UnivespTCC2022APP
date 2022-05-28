@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
 import com.developer.projetounivesp2021_frontrnd.fragments.BaseFragment;
-import com.developer.projetounivesp2021_frontrnd.fragments.register.ClinicaFragment;
+import com.developer.projetounivesp2021_frontrnd.fragments.search.ClinicaFragment;
 import com.developer.projetounivesp2021_frontrnd.fragments.register.PlanoUsuarioFragment;
 import com.developer.projetounivesp2021_frontrnd.fragments.register.UserFragment;
 import com.developer.projetounivesp2021_frontrnd.fragments.search.EstadoCidadeFragment;
