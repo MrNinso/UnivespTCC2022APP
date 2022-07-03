@@ -8,7 +8,8 @@ import com.developer.projetounivesp2021_frontrnd.objects.Clinica;
 
 import java.util.ArrayList;
 
-public class ClinicaAdapter extends BaseAdapter<Clinica, ClinicaHolder>{
+public class ClinicaAdapter extends BaseAdapter<Clinica, ClinicaHolder> {
+
     public ClinicaAdapter(ArrayList<Clinica> list) {
         super(list);
     }
@@ -20,7 +21,7 @@ public class ClinicaAdapter extends BaseAdapter<Clinica, ClinicaHolder>{
 
     @Override
     public boolean onSearch(Clinica clinica, String search) {
-        return clinica.getNome().contains(search);
+        return clinica.getNome().contains(search) || String.valueOf(clinica.getCid()).contains(search);
     }
 
     @Override

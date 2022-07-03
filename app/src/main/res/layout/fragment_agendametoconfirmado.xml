@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:weightSum="100">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_cadastro_medico"
+        app:tint="@color/green"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="@string/agendamento_marcado"
+        android:textAllCaps="true"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+        android:textColor="@color/green"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/texto_finalizado_agendamento"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:textAlignment="center"
+        android:maxLines="2"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/sh_fg_tvw_clinica"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+        android:textColor="@color/green"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/sh_fg_tvw_convenio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:textAlignment="center"
+        android:maxLines="1" />
+
+    <TextView
+        android:id="@+id/sh_fg_tvw_espcialidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:textAlignment="center"
+        android:maxLines="1" />
+
+    <TextView
+        android:id="@+id/sh_fg_tvw_medico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:textColor="@color/green"
+        android:textAlignment="center"
+        android:maxLines="1" />
+
+    <TextView
+        android:id="@+id/sh_fg_tvw_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:textColor="@color/green"
+        android:textAlignment="center"
+        android:maxLines="1" />
+</LinearLayout>

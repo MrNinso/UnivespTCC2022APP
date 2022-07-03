@@ -1,6 +1,5 @@
 package com.developer.projetounivesp2021_frontrnd;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,10 +15,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.developer.projetounivesp2021_frontrnd.adapters.BaseAdapter;
+import com.developer.projetounivesp2021_frontrnd.adapters.ClinicaAdapter;
 import com.developer.projetounivesp2021_frontrnd.adapters.ConvenioAdapter;
+import com.developer.projetounivesp2021_frontrnd.adapters.EspecialidadeAdapter;
 import com.developer.projetounivesp2021_frontrnd.adapters.EstadoCidadeAdapter;
 import com.developer.projetounivesp2021_frontrnd.adapters.PlanoAdapter;
+import com.developer.projetounivesp2021_frontrnd.objects.Clinica;
 import com.developer.projetounivesp2021_frontrnd.objects.Convenio;
+import com.developer.projetounivesp2021_frontrnd.objects.Especialidade;
 import com.developer.projetounivesp2021_frontrnd.objects.PlanoSaude;
 import com.developer.projetounivesp2021_frontrnd.tools.AsyncTools;
 import com.developer.projetounivesp2021_frontrnd.tools.ViewTools;
@@ -126,7 +129,57 @@ public class SimpleSelectListActivity
 
                 ci.resolve(this::loadList);
                 break;
+            case Extras.LIST_CLINICAS:
+                AsyncTools.Promise<String> cl = new AsyncTools.Promise<>(this::loadClinicas);
+                cl.Input =  b.getString(Search.EXTRA_SEARCH_ESTADO);
+
+                cl.resolve(this::loadList);
+                break;
+            case Extras.LIST_ESPECIALIDADES:
+                AsyncTools.Promise<String[]> es = new AsyncTools.Promise<>(this::loadEspecialidade);
+                es.Input = new String[]{ b.getString(Search.EXTRA_SEARCH_ESTADO), b.getString(Search.EXTRA_SEARCH_ESTADO) };
+
+                es.resolve(this::loadList);
+                break;
         }
+    }
+
+    private EspecialidadeAdapter loadEspecialidade(String[] estadoCidade) {
+        ArrayList<Especialidade> e = new ArrayList<>();
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException err) {
+            err.printStackTrace();
+        }
+
+        e.add(new Especialidade(1, "Clínica Médica"));
+        e.add(new Especialidade(2, "Pediatria"));
+        e.add(new Especialidade(3, "Cirurgia Geral"));
+        e.add(new Especialidade(4, "Ginecologia e Obstetrícia"));
+        e.add(new Especialidade(5, "Anestesiologia"));
+        e.add(new Especialidade(6, "Medicina do trabalho"));
+        e.add(new Especialidade(7, "Ortopedia e Traumatologia"));
+        e.add(new Especialidade(8, "Cardiologia"));
+        e.add(new Especialidade(9, "Oftalmologia"));
+
+        return new EspecialidadeAdapter(e);
+    }
+
+    private ClinicaAdapter loadClinicas(String estado) {
+        ArrayList<Clinica> c = new ArrayList<>();
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        for (int i = 0; i < 5; i++) {
+            c.add(new Clinica(i,String.format("Clinica %s do estado %s", i, estado)));
+        }
+
+        return new ClinicaAdapter(c);
     }
 
     private EstadoCidadeAdapter loadCidades(String estado) {
@@ -156,9 +209,12 @@ public class SimpleSelectListActivity
             e.printStackTrace();
         }
 
-        for (int i = 0; i < 20; i++) {
-            c.add(String.format("Estado %s", i));
-        }
+        c.add("São Paulo");
+        c.add("Rio de Janeiro");
+        c.add("Minas Gerais");
+        c.add("Rio Grande do Sul");
+        c.add("Paraná");
+        c.add("Santa Catarina");
 
         return new EstadoCidadeAdapter(c);
     }
@@ -234,10 +290,15 @@ public class SimpleSelectListActivity
         byte LIST_PLANOS = 0x1;
         byte LIST_ESTADOS = 0x2;
         byte LIST_CIDADES = 0x3;
+        byte LIST_CLINICAS = 0x4;
+        byte LIST_ESPECIALIDADES = 0x5;
     }
 
     public interface Search {
         String EXTRA_SEARCH_CONVENIO = "EXTRA_SEARCH_CONVENIO";
         String EXTRA_SEARCH_ESTADO = "EXTRA_SEARCH_ESTADO";
+        String EXTRA_SEARCH_CIDADE = "EXTRA_SEARCH_CIDADE";
+        String EXTRA_SEARCH_CLINICA = "EXTRA_SEARCH_CLINICA";
+        String EXTRA_SEARCH_ESPECIALIDADE = "EXTRA_SEARCH_ESPECIALIDADE";
     }
 }

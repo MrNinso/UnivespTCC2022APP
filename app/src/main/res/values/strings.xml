@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">ProjetoUnivesp</string>
     <string name="title_activity_main"> </string>
     <string name="ja_cadastrado">já sou cadastrado</string>
@@ -27,6 +27,8 @@
     <string name="clique_aqui_para_selecionar_o_convenio">Clique aqui para selecionar um convênio</string>
     <string name="clique_aqui_para_selecionar_o_estado">Clique aqui para selecionar um estado</string>
     <string name="clique_aqui_para_selecionar_a_cidade">Clique aqui para selecionar uma cidade</string>
+    <string name="clique_aqui_para_selecionar_a_especialidade">Clique aqui para selecionar uma especialidade</string>
+    <string name="clique_aqui_para_selecionar_a_clinica">Clique aqui para selecionar uma clínica</string>
     <string name="enviar">enviar</string>
     <string name="confirmar">confirmar</string>
     <string name="selecione_convenio">Selecione um convênio</string>
@@ -36,8 +38,10 @@
     <string name="notificacao">Notificação</string>
     <string name="iniciar_agendamento">iniciar agendamento</string>
     <string name="texto_iniciar_agendamento">Escolha uma clínica ou especialidade \n que deseja marcar consulta</string>
+    <string name="texto_finalizado_agendamento">O agendamento da sua consulta \n foi marcado com sucesso</string>
     <string name="clinicas">clínicas</string>
     <string name="especialidade">especialidade</string>
+    <string name="especialidades_clinicas">Especialidade e Clínicas</string>
     <string name="exames">exames</string>
     <string name="t_tfavoritos">\t\tFavoritos</string>
     <string name="t_tdependentes">\tDependentes</string>
@@ -55,4 +59,12 @@
     <string name="selecione_cidade">Selecione uma cidade</string>
     <string name="selecione_clinica_marcar">Selecione a clínica que deseja marcar consulta</string>
     <string name="pesquisar">Pesquisar</string>
+    <string name="selecione_especialidade">Selecione uma especialidade</string>
+    <string name="convenio">Convênio</string>
+    <string name="carterinha">Carterinha</string>
+    <string name="medico_data_hora"> Data Hora da Consulta</string>
+    <string name="meu_agendamento">Meu Agendamento</string>
+    <string name="confirmar_agendamento">confirmar agendamento</string>
+    <string name="agendamento_marcado">Agendamento Marcado</string>
+
 </resources>

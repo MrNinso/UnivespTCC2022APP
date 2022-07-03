@@ -6,10 +6,13 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
 import com.developer.projetounivesp2021_frontrnd.fragments.BaseFragment;
+import com.developer.projetounivesp2021_frontrnd.fragments.search.AgendamentoConfirmadoFragment;
 import com.developer.projetounivesp2021_frontrnd.fragments.search.ClinicaFragment;
 import com.developer.projetounivesp2021_frontrnd.fragments.register.PlanoUsuarioFragment;
 import com.developer.projetounivesp2021_frontrnd.fragments.register.UserFragment;
+import com.developer.projetounivesp2021_frontrnd.fragments.search.ConvenioFragment;
 import com.developer.projetounivesp2021_frontrnd.fragments.search.EstadoCidadeFragment;
+import com.developer.projetounivesp2021_frontrnd.fragments.search.MedicoFragment;
 
 public class FragmentActivity extends AppCompatActivity {
 
@@ -53,6 +56,21 @@ public class FragmentActivity extends AppCompatActivity {
                         getSupportFragmentManager(),
                         getIntent().getExtras()
                 );
+            case Extras.FRAGMENT_CONVENIO:
+                return new ConvenioFragment(
+                        getSupportFragmentManager(),
+                        getIntent().getExtras()
+                );
+            case Extras.FRAGMENT_MEDICO:
+                return new MedicoFragment(
+                        getSupportFragmentManager(),
+                        getIntent().getExtras()
+                );
+            case Extras.FRAGMENT_AGENDAMENTO_CONFIRMADO:
+                return new AgendamentoConfirmadoFragment(
+                        getSupportFragmentManager(),
+                        getIntent().getExtras()
+                );
             default:
                 return new BaseFragment(getSupportFragmentManager()) {
                     @Override
@@ -80,5 +98,8 @@ public class FragmentActivity extends AppCompatActivity {
         byte FRAGMENT_CLINICA = 0x1;
         byte FRAGMENT_USER_PLANO = 0x3;
         byte FRAGMENT_ESTADO_CIDADE = 0x4;
+        byte FRAGMENT_CONVENIO = 0x5;
+        byte FRAGMENT_MEDICO = 0x6;
+        byte FRAGMENT_AGENDAMENTO_CONFIRMADO = 0x7;
     }
 }

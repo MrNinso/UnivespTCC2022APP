@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResult;
@@ -18,29 +19,36 @@ import com.developer.projetounivesp2021_frontrnd.R;
 import com.developer.projetounivesp2021_frontrnd.SimpleSelectListActivity;
 import com.developer.projetounivesp2021_frontrnd.fragments.BaseFragment;
 import com.developer.projetounivesp2021_frontrnd.objects.Clinica;
+import com.developer.projetounivesp2021_frontrnd.objects.Convenio;
 import com.developer.projetounivesp2021_frontrnd.objects.Especialidade;
+import com.developer.projetounivesp2021_frontrnd.objects.PlanoSaude;
 import com.developer.projetounivesp2021_frontrnd.tools.ViewTools;
 
-public class ClinicaFragment extends BaseFragment {
-
-    private TextView mEspecialidadeBtn, mClinicaBtn, mAvancarBtn;
-    private ActivityResultLauncher<Intent> mListEspecialidadeLaucher;
-    private ActivityResultLauncher<Intent> mListClinicaLaucher;
-    private Especialidade mEspecialidade;
+public class ConvenioFragment extends BaseFragment {
     private Clinica mClinica;
+    private Especialidade mEspecialidade;
+    private Convenio mConvenio;
+    private PlanoSaude mPlano;
+    private TextView mConvenioBtn, mPlanoBtn, mAvancarBtn;
+    private EditText mCarterinhaEdt;
+    private ActivityResultLauncher<Intent> mListConvenioLaucher;
+    private ActivityResultLauncher<Intent> mListPlanoLaucher;
 
-    public ClinicaFragment(FragmentManager Mamanger, Bundle b) {
-        super(Mamanger, b);
+    public ConvenioFragment(FragmentManager supportFragmentManager, Bundle extras) {
+        super(supportFragmentManager, extras);
+
+        this.mEspecialidade = (Especialidade) extras.get(Extras.ESPECIALIDADE);
+        this.mClinica = (Clinica) extras.get(Extras.CLINICA);
     }
 
     @Override
     public int getTitle() {
-        return R.string.especialidades_clinicas;
+        return R.string.convenio;
     }
 
     @Override
     protected int getLayout() {
-        return R.layout.fragment_clinicas;
+        return R.layout.fragment_convenio;
     }
 
     @Override
@@ -48,79 +56,62 @@ public class ClinicaFragment extends BaseFragment {
         super.onViewCreated(v, savedInstanceState);
         ViewTools viewTools = new ViewTools(this.getContext());
 
-        this.mEspecialidadeBtn = v.findViewById(R.id.sh_fg_btn_especialidade);
-        this.mClinicaBtn = v.findViewById(R.id.sh_fg_btn_clinica);
+        this.mConvenioBtn = v.findViewById(R.id.sh_fg_btn_convenio);
+        this.mPlanoBtn = v.findViewById(R.id.sh_fg_btn_plano);
         this.mAvancarBtn = v.findViewById(R.id.sh_fg_btn_avancar);
+        this.mCarterinhaEdt = v.findViewById(R.id.sh_fg_edt_carterinha);
 
-        this.mListEspecialidadeLaucher = registerForActivityResult(
+        this.mListConvenioLaucher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
-                this::onEspecialidade
+                this::onConvenio
         );
 
-        this.mListClinicaLaucher = registerForActivityResult(
+        this.mListPlanoLaucher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
-                this::onClinica
+                this::onPlano
         );
 
-        this.mEspecialidadeBtn.setOnClickListener(viewTools.btnClick(500, v1 -> {
+        this.mConvenioBtn.setOnClickListener(viewTools.btnClick(500, view -> {
             Intent i = new Intent(this.getContext(), SimpleSelectListActivity.class);
             Bundle b = new Bundle();
+
             b.putByte(
                     SimpleSelectListActivity.Extras.EXTRA_LIST,
-                    SimpleSelectListActivity.Extras.LIST_ESPECIALIDADES
+                    SimpleSelectListActivity.Extras.LIST_CONVENIOS
             );
 
             b.putInt(
                     SimpleSelectListActivity.Extras.EXTRA_TITLE,
-                    R.string.selecione_especialidade
-            );
-
-            b.putString(
-                    SimpleSelectListActivity.Search.EXTRA_SEARCH_ESTADO,
-                    this.getExtras().getString(Extras.ESTADO)
-            );
-
-            b.putString(
-                    SimpleSelectListActivity.Search.EXTRA_SEARCH_CIDADE,
-                    this.getExtras().getString(Extras.CIDADE)
+                    R.string.selecione_convenio
             );
 
             i.putExtras(b);
 
-            this.mListEspecialidadeLaucher.launch(i);
+            this.mListConvenioLaucher.launch(i);
         }));
 
-        this.mClinicaBtn.setOnClickListener(viewTools.btnClick(500, v1 -> {
+        this.mPlanoBtn.setOnClickListener(viewTools.btnClick(500, view -> {
             Intent i = new Intent(this.getContext(), SimpleSelectListActivity.class);
             Bundle b = new Bundle();
+
             b.putByte(
                     SimpleSelectListActivity.Extras.EXTRA_LIST,
-                    SimpleSelectListActivity.Extras.LIST_CLINICAS
+                    SimpleSelectListActivity.Extras.LIST_PLANOS
             );
 
             b.putInt(
                     SimpleSelectListActivity.Extras.EXTRA_TITLE,
-                    R.string.selecione_clinica_marcar
+                    R.string.selecione_plano
             );
 
             b.putString(
-                    SimpleSelectListActivity.Search.EXTRA_SEARCH_ESTADO,
-                    this.getExtras().getString(Extras.ESTADO)
-            );
-
-            b.putString(
-                    SimpleSelectListActivity.Search.EXTRA_SEARCH_CIDADE,
-                    this.getExtras().getString(Extras.CIDADE)
-            );
-
-            b.putInt(
-                    SimpleSelectListActivity.Search.EXTRA_SEARCH_ESPECIALIDADE,
-                    this.mEspecialidade.getEid()
+                    SimpleSelectListActivity.Search.EXTRA_SEARCH_CONVENIO,
+                    this.mConvenio.getNome()
             );
 
             i.putExtras(b);
 
-            this.mListClinicaLaucher.launch(i);
+            this.mListPlanoLaucher.launch(i);
         }));
 
         this.mAvancarBtn.setOnClickListener(viewTools.btnClick(500, v1 -> {
@@ -128,42 +119,44 @@ public class ClinicaFragment extends BaseFragment {
 
             i.putExtra(
                     FragmentActivity.Extras.EXTRA_FRAGMENT,
-                    FragmentActivity.Extras.FRAGMENT_CONVENIO
+                    FragmentActivity.Extras.FRAGMENT_MEDICO
             );
 
-            i.putExtra(ConvenioFragment.Extras.ESPECIALIDADE, this.mEspecialidade);
-            i.putExtra(ConvenioFragment.Extras.CLINICA, this.mClinica);
+            i.putExtra(MedicoFragment.Extras.CLINICA, this.mClinica);
+            i.putExtra(MedicoFragment.Extras.CONVENIO, this.mConvenio);
+            i.putExtra(MedicoFragment.Extras.ESPECIALIDADE, this.mEspecialidade);
 
             startActivity(i);
         }));
     }
 
-    private void onEspecialidade(ActivityResult r) {
+    private void onConvenio(ActivityResult r) {
         if (r.getResultCode() == Activity.RESULT_OK) {
             assert r.getData() != null;
             Bundle b = r.getData().getExtras();
 
-            this.mEspecialidade = (Especialidade) b.getSerializable(SimpleSelectListActivity.Extras.EXTRA_RESULT);
+            this.mConvenio = (Convenio) b.getSerializable(SimpleSelectListActivity.Extras.EXTRA_RESULT);
 
-            this.mEspecialidadeBtn.setText(this.mEspecialidade.getNome());
-            this.mClinicaBtn.setVisibility(View.VISIBLE);
+            this.mConvenioBtn.setText(this.mConvenio.getNome());
+            this.mPlanoBtn.setVisibility(View.VISIBLE);
         }
     }
 
-    private void onClinica(ActivityResult r) {
+    private void onPlano(ActivityResult r) {
         if (r.getResultCode() == Activity.RESULT_OK) {
             assert r.getData() != null;
             Bundle b = r.getData().getExtras();
 
-            this.mClinica = (Clinica) b.getSerializable(SimpleSelectListActivity.Extras.EXTRA_RESULT);;
+            this.mPlano = (PlanoSaude) b.getSerializable(SimpleSelectListActivity.Extras.EXTRA_RESULT);
 
+            this.mPlanoBtn.setText(this.mPlano.getNome());
+            this.mCarterinhaEdt.setVisibility(View.VISIBLE);
             this.mAvancarBtn.setVisibility(View.VISIBLE);
-            this.mClinicaBtn.setText(this.mClinica.getNome());
         }
     }
 
-    interface Extras {
-        String ESTADO = "ESTADO";
-        String CIDADE = "CIDADE";
+    public interface Extras {
+        String ESPECIALIDADE = "ESPECIALIDADE";
+        String CLINICA = "CLINICA";
     }
 }

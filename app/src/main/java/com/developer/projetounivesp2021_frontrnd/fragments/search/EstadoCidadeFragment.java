@@ -112,57 +112,24 @@ public class EstadoCidadeFragment extends BaseFragment {
             this.mListCidadeLaucher.launch(i);
         }));
         this.mAvancarBtn.setOnClickListener(viewTools.btnClick(500, v1 -> {
+            Intent i = new Intent(this.getContext(), FragmentActivity.class);
 
-            AlertDialog dialog = viewTools.loadDialog(getLayoutInflater());
+            i.putExtra(
+                    FragmentActivity.Extras.EXTRA_FRAGMENT,
+                    FragmentActivity.Extras.FRAGMENT_CLINICA
+            );
 
-            @SuppressLint("DefaultLocale") // TODO :: REMOVER
-            AsyncTools.Promise<String[]> clinicasPromise = new AsyncTools.Promise<>(EstadoCidade -> {
-                String Estado = EstadoCidade[0];
-                String Cidade = EstadoCidade[1];
+            i.putExtra(
+                    ClinicaFragment.Extras.ESTADO,
+                    this.mEstado
+            );
 
-                // TODO Isso vai virar uma CALL na api
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+            i.putExtra(
+                    ClinicaFragment.Extras.CIDADE,
+                    this.mCidade
+            );
 
-                ArrayList<Clinica> clinicas = new ArrayList<>();
-
-                for (int i = 0; i < 50; i++) {
-                    clinicas.add(new Clinica(
-                            i,
-                            String.format("Clinica %d %s - %s", i, Estado, Cidade)
-                    ));
-                }
-
-                return clinicas;
-            });
-
-            clinicasPromise.Input = new String[] { this.mEstado, this.mCidade };
-
-            clinicasPromise.resolve(o -> {
-                dialog.dismiss();
-                ArrayList<Clinica> clinicas = (ArrayList<Clinica>) o;
-                if (clinicas.size() == 0) {
-                    viewTools.showSnackBar(v1, "TODO"); // TODO
-                } else {
-                    Intent i = new Intent(this.getContext(), FragmentActivity.class);
-
-                    i.putExtra(
-                            FragmentActivity.Extras.EXTRA_FRAGMENT,
-                            FragmentActivity.Extras.FRAGMENT_CLINICA
-                    );
-
-                    i.putExtra(
-                            ClinicaFragment.Extras.CLINICAS_ARRAY,
-                            clinicas
-                    );
-
-                    startActivity(i);
-                }
-            });
-            dialog.show();
+            startActivity(i);
         }));
     }
 
